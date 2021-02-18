@@ -1,0 +1,63 @@
+[submodule "deps/doctest"]
+	path = deps/doctest
+	url = https://github.com/onqtam/doctest.git
+[submodule "deps/glm"]
+	path = deps/glm
+	url = https://github.com/g-truc/glm.git
+[submodule "deps/mimalloc"]
+	path = deps/mimalloc
+	url = https://github.com/microsoft/mimalloc.git
+[submodule "deps/taskflow"]
+	path = deps/taskflow
+	url = https://github.com/taskflow/taskflow.git
+[submodule "deps/xxHash"]
+	path = deps/xxHash
+	url = https://github.com/Cyan4973/xxHash.git
+[submodule "deps/sol2"]
+	path = deps/sol2
+	url = https://github.com/ThePhD/sol2.git
+[submodule "deps/lua"]
+	path = deps/lua
+	url = https://github.com/lua/lua.git
+[submodule "deps/fmt"]
+	path = deps/fmt
+	url = https://github.com/fmtlib/fmt.git
+[submodule "deps/parallel-hashmap"]
+	path = deps/parallel-hashmap
+	url = https://github.com/greg7mdp/parallel-hashmap.git
+[submodule "deps/spdlog"]
+	path = deps/spdlog
+	url = https://github.com/gabime/spdlog.git
+[submodule "deps/glfw"]
+	path = deps/glfw
+	url = https://github.com/glfw/glfw.git
+[submodule "deps/imgui"]
+	path = deps/imgui
+	url = https://github.com/ocornut/imgui.git
+[submodule "deps/nodegraphed"]
+	path = deps/nodegraphed
+	url = https://github.com/find/nodegraphed.git
+[submodule "deps/nativefiledialog"]
+	path = deps/nativefiledialog
+	url = https://github.com/mlabbe/nativefiledialog.git
+[submodule "deps/tracy"]
+	path = deps/tracy
+	url = https://github.com/wolfpld/tracy.git
+[submodule "deps/marl"]
+	path = deps/marl
+	url = https://github.com/google/marl.git
+[submodule "deps/csv-parser"]
+	path = deps/csv-parser
+	url = https://github.com/vincentlaucsb/csv-parser.git
+[submodule "deps/hedley"]
+	path = deps/hedley
+	url = https://github.com/nemequ/hedley.git
+[submodule "deps/pdqsort"]
+	path = deps/pdqsort
+	url = https://github.com/orlp/pdqsort.git
+[submodule "deps/fast_float"]
+	path = deps/fast_float
+	url = https://github.com/fastfloat/fast_float.git
+[submodule "deps/ImGuiColorTextEdit"]
+	path = deps/ImGuiColorTextEdit
+	url = https://github.com/BalazsJako/ImGuiColorTextEdit.git

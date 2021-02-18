@@ -1,0 +1,16 @@
+build/
+deps/
+/tests/intermediate/
+.vs/
+.vscode/
+.clangd/
+.cache/
+.\#*
+compile_commands.json
+*.make
+*.sln
+*.vcxproj
+*.vcxproj.*
+Makefile
+tags
+imgui.ini

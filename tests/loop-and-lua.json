@@ -1,0 +1,644 @@
+{
+  "args": null,
+  "bypassed": false,
+  "children": {
+    "add_column": {
+      "args": {
+        "array": {
+          "desc": {
+            "closeRange": [
+              false,
+              false
+            ],
+            "defaultExpression": [
+              "false",
+              "",
+              "",
+              ""
+            ],
+            "valueRange": [
+              0.0,
+              1.0
+            ]
+          },
+          "expr": [
+            "false",
+            "",
+            "",
+            ""
+          ]
+        },
+        "name": {
+          "desc": {
+            "closeRange": [
+              false,
+              false
+            ],
+            "defaultExpression": [
+              "new_column",
+              "",
+              "",
+              ""
+            ],
+            "valueRange": [
+              0.0,
+              1.0
+            ]
+          },
+          "expr": [
+            "some tuple",
+            "",
+            "",
+            ""
+          ]
+        },
+        "overwrite": {
+          "desc": {
+            "closeRange": [
+              false,
+              false
+            ],
+            "defaultExpression": [
+              "true",
+              "",
+              "",
+              ""
+            ],
+            "valueRange": [
+              0.0,
+              1.0
+            ]
+          },
+          "expr": [
+            "true",
+            "",
+            "",
+            ""
+          ]
+        },
+        "table": {
+          "desc": {
+            "closeRange": [
+              false,
+              false
+            ],
+            "defaultExpression": [
+              "0",
+              "",
+              "",
+              ""
+            ],
+            "menu": [
+              "0"
+            ],
+            "valueRange": [
+              0.0,
+              1.0
+            ]
+          },
+          "expr": [
+            "0",
+            "",
+            "",
+            ""
+          ]
+        },
+        "tupleSize": {
+          "desc": {
+            "closeRange": [
+              false,
+              false
+            ],
+            "defaultExpression": [
+              "1",
+              "",
+              "",
+              ""
+            ],
+            "valueRange": [
+              1.0,
+              4.0
+            ]
+          },
+          "expr": [
+            "3",
+            "",
+            "",
+            ""
+          ]
+        },
+        "type": {
+          "desc": {
+            "closeRange": [
+              false,
+              false
+            ],
+            "defaultExpression": [
+              "float",
+              "",
+              "",
+              ""
+            ],
+            "valueRange": [
+              0.0,
+              1.0
+            ]
+          },
+          "expr": [
+            "float",
+            "",
+            "",
+            ""
+          ]
+        }
+      },
+      "bypassed": false,
+      "downstreams": [
+        [
+          {
+            "name": "loop",
+            "pin": 0
+          }
+        ]
+      ],
+      "type": "add_column",
+      "upstreams": [
+        {
+          "name": "lua",
+          "pin": 0
+        }
+      ]
+    },
+    "feedback1": {
+      "args": null,
+      "bypassed": false,
+      "downstreams": [
+        [
+          {
+            "name": "lua",
+            "pin": 0
+          }
+        ]
+      ],
+      "type": "feedback",
+      "upstreams": [
+        {
+          "name": "lua1",
+          "pin": 0
+        },
+        {
+          "name": "loop",
+          "pin": 0
+        }
+      ]
+    },
+    "loop": {
+      "args": {
+        "count": {
+          "desc": {
+            "closeRange": [
+              true,
+              false
+            ],
+            "defaultExpression": [
+              "10",
+              "",
+              "",
+              ""
+            ],
+            "valueRange": [
+              0.0,
+              100.0
+            ]
+          },
+          "expr": [
+            "16",
+            "",
+            "",
+            ""
+          ]
+        }
+      },
+      "bypassed": false,
+      "downstreams": [
+        [
+          {
+            "name": "lua2",
+            "pin": 0
+          },
+          {
+            "name": "feedback1",
+            "pin": 1
+          }
+        ]
+      ],
+      "type": "loop",
+      "upstreams": [
+        {
+          "name": "add_column",
+          "pin": 0
+        }
+      ]
+    },
+    "loop_info": {
+      "args": {
+        "controller": {
+          "desc": {
+            "closeRange": [
+              false,
+              false
+            ],
+            "defaultExpression": [
+              "",
+              "",
+              "",
+              ""
+            ],
+            "valueRange": [
+              0.0,
+              1.0
+            ]
+          },
+          "expr": [
+            "loop",
+            "",
+            "",
+            ""
+          ]
+        }
+      },
+      "bypassed": false,
+      "downstreams": [
+        [
+          {
+            "name": "lua",
+            "pin": 1
+          }
+        ]
+      ],
+      "type": "loop_info",
+      "upstreams": []
+    },
+    "lua": {
+      "args": {
+        "code": {
+          "desc": {
+            "closeRange": [
+              false,
+              false
+            ],
+            "defaultExpression": [
+              "",
+              "lua",
+              "",
+              ""
+            ],
+            "valueRange": [
+              0.0,
+              1.0
+            ]
+          },
+          "expr": [
+            "local r = data[0]:addRow()\ndata[0]:set('id',r,ctx:inputData(1)[0]:get('iteration'))\n\n\n",
+            "lua",
+            "",
+            ""
+          ]
+        }
+      },
+      "bypassed": false,
+      "downstreams": [
+        [
+          {
+            "name": "add_column",
+            "pin": 0
+          }
+        ]
+      ],
+      "type": "lua",
+      "upstreams": [
+        {
+          "name": "feedback1",
+          "pin": 0
+        },
+        {
+          "name": "loop_info",
+          "pin": 0
+        }
+      ]
+    },
+    "lua1": {
+      "args": {
+        "code": {
+          "desc": {
+            "closeRange": [
+              false,
+              false
+            ],
+            "defaultExpression": [
+              "",
+              "lua",
+              "",
+              ""
+            ],
+            "valueRange": [
+              0.0,
+              1.0
+            ]
+          },
+          "expr": [
+            "data:addTable()\ndata[0]:addColumn('id',-1)\n\n",
+            "lua",
+            "",
+            ""
+          ]
+        }
+      },
+      "bypassed": false,
+      "downstreams": [
+        [
+          {
+            "name": "feedback1",
+            "pin": 0
+          }
+        ]
+      ],
+      "type": "lua",
+      "upstreams": []
+    },
+    "lua2": {
+      "args": {
+        "code": {
+          "desc": {
+            "closeRange": [
+              false,
+              false
+            ],
+            "defaultExpression": [
+              "",
+              "lua",
+              "",
+              ""
+            ],
+            "valueRange": [
+              0.0,
+              1.0
+            ]
+          },
+          "expr": [
+            "local table0 = data[0]\ntable0:addColumn('hello',vec3:new(1,2,3))\n\ntable0:addColumn('list',{'int'})\ntable0:set('hello',2,{10,20})\ntable0:set('list',3,{1,2,4,32,2,2,21})\ntable0:set('list',2,{2,1,4,1})\ntable0:set('list',0,table0:get('list',3))\n\n\n",
+            "lua",
+            "",
+            ""
+          ]
+        }
+      },
+      "bypassed": false,
+      "downstreams": [],
+      "type": "lua",
+      "upstreams": [
+        {
+          "name": "loop",
+          "pin": 0
+        },
+        {
+          "name": "",
+          "pin": -1
+        }
+      ]
+    }
+  },
+  "desc": {
+    "argDescs": [],
+    "inputPinNames": [],
+    "name": "subnet",
+    "numMaxInput": 4,
+    "numOutputs": 1,
+    "numRequiredInput": 0,
+    "outputPinNames": []
+  },
+  "downstreams": [],
+  "mapping": {
+    "2": "loop",
+    "3": "loop_info",
+    "4": "lua",
+    "5": "lua1",
+    "6": "lua2",
+    "8": "feedback1",
+    "9": "add_column"
+  },
+  "outputs": [],
+  "type": "subnet",
+  "uigraph": {
+    "links": [
+      {
+        "from": {
+          "node": 2,
+          "pin": 0
+        },
+        "to": {
+          "node": 8,
+          "pin": 1
+        }
+      },
+      {
+        "from": {
+          "node": 4,
+          "pin": 0
+        },
+        "to": {
+          "node": 9,
+          "pin": 0
+        }
+      },
+      {
+        "from": {
+          "node": 3,
+          "pin": 0
+        },
+        "to": {
+          "node": 4,
+          "pin": 1
+        }
+      },
+      {
+        "from": {
+          "node": 5,
+          "pin": 0
+        },
+        "to": {
+          "node": 8,
+          "pin": 0
+        }
+      },
+      {
+        "from": {
+          "node": 2,
+          "pin": 0
+        },
+        "to": {
+          "node": 6,
+          "pin": 0
+        }
+      },
+      {
+        "from": {
+          "node": 8,
+          "pin": 0
+        },
+        "to": {
+          "node": 4,
+          "pin": 0
+        }
+      },
+      {
+        "from": {
+          "node": 9,
+          "pin": 0
+        },
+        "to": {
+          "node": 2,
+          "pin": 0
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "color": {
+          "w": 0.800000011920929,
+          "x": 1.0,
+          "y": 0.9800073504447937,
+          "z": 0.47287261486053467
+        },
+        "displayName": "loop",
+        "id": 2,
+        "initialName": "loop",
+        "maxInputs": 1,
+        "minInputs": 0,
+        "nOutputs": 1,
+        "pos": {
+          "x": 497.3922119140625,
+          "y": 1026.996826171875
+        }
+      },
+      {
+        "color": {
+          "w": 0.800000011920929,
+          "x": 0.6000000238418579,
+          "y": 0.6000000238418579,
+          "z": 0.6000000238418579
+        },
+        "displayName": "loop_info",
+        "id": 3,
+        "initialName": "loop_info",
+        "maxInputs": 0,
+        "minInputs": 0,
+        "nOutputs": 1,
+        "pos": {
+          "x": 371.8622131347656,
+          "y": 662.4909057617188
+        }
+      },
+      {
+        "color": {
+          "w": 0.800000011920929,
+          "x": 0.6000000238418579,
+          "y": 0.6000000238418579,
+          "z": 0.6000000238418579
+        },
+        "displayName": "lua",
+        "id": 4,
+        "initialName": "lua",
+        "maxInputs": 4,
+        "minInputs": 0,
+        "nOutputs": 1,
+        "pos": {
+          "x": 355.6242980957031,
+          "y": 765.7761840820313
+        }
+      },
+      {
+        "color": {
+          "w": 0.800000011920929,
+          "x": 0.6000000238418579,
+          "y": 0.6000000238418579,
+          "z": 0.6000000238418579
+        },
+        "displayName": "lua1",
+        "id": 5,
+        "initialName": "lua",
+        "maxInputs": 4,
+        "minInputs": 0,
+        "nOutputs": 1,
+        "pos": {
+          "x": 265.5291442871094,
+          "y": 480.1094665527344
+        }
+      },
+      {
+        "color": {
+          "w": 0.800000011920929,
+          "x": 0.6000000238418579,
+          "y": 0.6000000238418579,
+          "z": 0.6000000238418579
+        },
+        "displayName": "lua2",
+        "id": 6,
+        "initialName": "lua",
+        "maxInputs": 4,
+        "minInputs": 0,
+        "nOutputs": 1,
+        "pos": {
+          "x": 471.00262451171875,
+          "y": 1227.5836181640625
+        }
+      },
+      {
+        "color": {
+          "w": 0.800000011920929,
+          "x": 0.6000000238418579,
+          "y": 0.6000000238418579,
+          "z": 0.6000000238418579
+        },
+        "displayName": "feedback1",
+        "id": 8,
+        "initialName": "feedback",
+        "maxInputs": 2,
+        "minInputs": 0,
+        "nOutputs": 1,
+        "pos": {
+          "x": 302.7172546386719,
+          "y": 620.6246948242188
+        }
+      },
+      {
+        "color": {
+          "w": 0.800000011920929,
+          "x": 0.6000000238418579,
+          "y": 0.6000000238418579,
+          "z": 0.6000000238418579
+        },
+        "displayName": "add_column",
+        "id": 9,
+        "initialName": "add_column",
+        "maxInputs": 1,
+        "minInputs": 1,
+        "nOutputs": 1,
+        "pos": {
+          "x": 315.5483093261719,
+          "y": 883.8751831054688
+        }
+      }
+    ],
+    "order": [
+      3,
+      8,
+      5,
+      4,
+      2,
+      9,
+      6
+    ]
+  },
+  "upstreams": []
+}
